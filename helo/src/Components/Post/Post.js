@@ -1,18 +1,13 @@
 import React, {Component} from 'react';
 
-class Post extends Component {
-    constructor(){
-        super();
-        this.state = {
+function Post(props) {
 
-        }
-    }
-    render(){
         return(
-            <div>Post</div>
+            <div>
+                <img src={props.post.img} alt='new post' style={{width: '200px'}} />
+                <button onClick={() => props.deletePost(props.post.id)}> Delete Post </button>
+            </div>
         )
     }
-}
-
 
 export default Post;
