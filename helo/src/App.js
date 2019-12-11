@@ -10,7 +10,11 @@ import Post from './Components/Post/Post';
 function App() {
   return (
     <div className="App">
-      
+      <Nav />
+      <Auth />
+      <Dashboard />
+      <Form />
+      <Post />
     </div>
   );
 }
