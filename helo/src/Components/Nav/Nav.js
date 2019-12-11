@@ -1,17 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {Link} from 'react-router-dom';
 
-class Nav extends Component {
-    constructor(){
-        super();
-        this.state = {
 
-        }
-    }
-    render(){
+const Nav = () => {
         return(
-            <div>Nav</div>
+            <div>
+                <Link to='/dashboard'> Dashboard </Link>
+                <Link to='/post'> Post </Link>
+            </div>
         )
     }
-}
 
 export default Nav;

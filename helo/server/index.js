@@ -27,6 +27,7 @@ massive(CONNECTION_STRING)
 
 app.post('/api/auth/register', authCtrl.login);
 app.post('/api/auth/login', authCtrl.register);
+app.post('/api/logout', authCtrl.logout);
 
 // Bonus features
 
