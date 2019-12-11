@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+import axios from 'axios';
 
 function Post(props) {
 
@@ -11,3 +12,27 @@ function Post(props) {
     }
 
 export default Post;
+
+// import React, {Component} from 'react';
+// import axios from 'axios';
+
+// class Post extends Component() {
+//     constructor(){
+//         super();
+//         this.state = {
+
+//         };
+
+//     }
+
+//     render() {
+//     return(
+//             <div>
+//                 <img src={this.props.post.img} alt='new post' style={{width: '200px'}} />
+//                 <button onClick={() => this.props.deletePost(this.props.post.id)}> Delete Post </button>
+//             </div>
+//         )
+//     }
+// }
+
+// export default Post;
