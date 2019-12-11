@@ -8,35 +8,39 @@ class Form extends Component {
         super();
         this.state = {
             posts: [],
-            img: ''
+            title: '',
+            img: '',
+            content: ''
         }
     }
 
     handleInput = event => {
         this.setState({
-            img: event.target.value
+            [event.target.name]: event.target.value
         })
     }
 
     componentDidMount(){
-        axios.get(`/api/posts/${this.props.user.id}`).then(res => {
+        axios.get(`/api/posts/${this.props.user.author_id}`).then(res => {
             this.setState({posts: res.data})
         })
         .catch(err => console.log(err))
     }
 
     addPost = () => {
-        axios.post(`api/posts/${this.props.user.id}`, {img: this.state.image}).then(res => {
+        axios.post(`api/posts/${this.props.user.author_id}`, {title: this.state.title}, {img: this.state.img}, {content: this.state.content}).then(res => {
             this.setState({
                 posts: res.data,
-                img: ''
+                title: '',
+                img: '',
+                content: ''
             })
         })
         .catch(err => console.log(err))
     }
 
     deletePost = id => {
-        axios.delete(`/api/posts/${id}/${this.props.user.id}`).then(res => {
+        axios.delete(`/api/posts/${id}/${this.props.user.author_id}`).then(res => {
             this.setState({
                 posts: res.data
             })
@@ -49,11 +53,22 @@ class Form extends Component {
                 <Post deletePost={this.deletePost} key={index} post={post} />
             )
         })
+
+
         return(
             <div>
                 {mappedPosts}
+
+                <h1>NEW POST</h1>
+                <input onChange={event => this.handleInput(event)} value={this.state.title} placeholder='Title here'></input>
+
                 <input onChange={event => this.handleInput(event)} value={this.state.img} placeholder='Image link here'></input>
-                <button onClick={this.addPost}> Public Post </button>
+
+                <input onChange={event => this.handleInput(event)} value={this.state.content} placeholder='Content here'></input>
+
+
+
+                <button onClick={this.addPost}> Publish Post </button>
             </div>
         )
     }
