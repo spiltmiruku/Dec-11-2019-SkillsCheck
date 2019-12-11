@@ -25,16 +25,15 @@ massive(CONNECTION_STRING)
 
 // Minimum Viable Product
 
-app.post('/api/auth/register', authCtrl.login);
-app.post('/api/auth/login', authCtrl.register);
+app.post('/api/auth/register', authCtrl.register);
+app.post('/api/auth/login', authCtrl.login);
 app.post('/api/logout', authCtrl.logout);
 
 // Bonus features
 
-// app.get('/api/posts/:userid');
-// app.post('/api/post/:userid');
-// app.get('/api/post/:postid');
-
+app.get('/api/posts/:userid');
+app.post('/api/post/:userid');
+app.get('/api/post/:postid');
 
 const port = SERVER_PORT;
 app.listen(port, () => console.log(gradient.pastel(`Ready to crush it on ${port}`)));

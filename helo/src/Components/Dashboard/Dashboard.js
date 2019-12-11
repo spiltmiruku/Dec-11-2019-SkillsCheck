@@ -13,14 +13,12 @@ const Dashboard = (props) => {
         })
         .catch(err => console.log(err))
     }
-
         return(
             <div>
                 <h1>Dashboard</h1>
                 <p>{props.user.id}</p>
                 <p>{props.user.username}</p>
                 <button onClick={logout}> Log out </button>
-
             </div>
         )
 }

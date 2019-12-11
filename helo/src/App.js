@@ -8,7 +8,6 @@ import Auth from './Components/Auth/Auth';
 // import Post from './Components/Post/Post';
 import routes from './routes';
 
-
 function App(props) {
   return (
     <div className="App">

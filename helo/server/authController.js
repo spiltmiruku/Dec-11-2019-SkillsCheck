@@ -12,9 +12,9 @@ module.exports = {
         if(!user){
             return res.status(400).send('Username not found')
         }
-        const authenticated = bcrypt.compareSync(password, user.user_password);
+        const authenticated = bcrypt.compareSync(password, user.password);
         if(authenticated){
-            delete user.user_password;
+            delete user.password;
             session.user = user;
             res.status(202).send(session.user);
         } else {
